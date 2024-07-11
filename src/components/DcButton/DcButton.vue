@@ -62,6 +62,12 @@ const buttonStyle = reactive({ ...props.dimensionOverrides });
 <style scoped lang="scss">
 @import "../../assets/colors.scss";
 
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .button {
 	display: flex;
 	justify-content: center;
