@@ -1,0 +1,20 @@
+export type Theme = {
+	primaryColor: string;
+	primaryColorHover: string;
+	primaryColorActive: string;
+	secondaryColor: string;
+	secondaryColorHover: string;
+	secondaryColorActive: string;
+	dangerColor: string;
+	dangerColorHover: string;
+	dangerColorActive: string;
+	ghostColor: string;
+	ghostColorHover: string;
+	ghostColorActive: string;
+	disabledColor: string;
+	accentColor: string;
+	neutralLightColor: string;
+	neutralDarkColor: string;
+	textLightColor: string;
+	textDarkColor: string;
+};

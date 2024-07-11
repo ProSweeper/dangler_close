@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --ghost-color: transparent;
+    --neutral-light-color: #ecf0f1;
+    --neutral-dark-color: #2c3e50;
+    --accent-color: #e67e22;
+    --text-color-light: #ffffff;
+    --text-color-dark: #2c3e50;
+
+    --primary-hover: #2b8acb;
+    /* darken(#3498db, 10%) */
+    --secondary-hover: #29b963;
+    /* darken(#2ecc71, 10%) */
+    --danger-hover: #cf4436;
+    /* darken(#e74c3c, 10%) */
+    --ghost-hover: rgba(0, 0, 0, 0.1);
+
+    --primary-active: #2277a3;
+    /* darken(#3498db, 20%) */
+    --secondary-active: #248e54;
+    /* darken(#2ecc71, 20%) */
+    --danger-active: #b73b30;
+    /* darken(#e74c3c, 20%) */
+    --ghost-active: rgba(0, 0, 0, 0.2);
+
+    --primary-disabled: #7fb5e1;
+    --secondary-disabled: #a5d6a7;
+    --danger-disabled: #e1a3a3;
+    --ghost-disabled: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --primary-color: #2980b9;
+    --secondary-color: #27ae60;
+    --danger-color: #c0392b;
+    --ghost-color: transparent;
+    --neutral-light-color: #95a5a6;
+    --neutral-dark-color: #1a252f;
+    --accent-color: #f39c12;
+    --text-color-light: #bdc3c7;
+    --text-color-dark: #ffffff;
+
+    --primary-hover: #216a9b;
+    /* darken(#2980b9, 10%) */
+    --secondary-hover: #229552;
+    /* darken(#27ae60, 10%) */
+    --danger-hover: #a93226;
+    /* darken(#c0392b, 10%) */
+    --ghost-hover: rgba(255, 255, 255, 0.1);
+
+    --primary-active: #1a5f7e;
+    /* darken(#2980b9, 20%) */
+    --secondary-active: #1e8449;
+    /* darken(#27ae60, 20%) */
+    --danger-active: #89201d;
+    /* darken(#c0392b, 20%) */
+    --ghost-active: rgba(255, 255, 255, 0.2);
+
+    --primary-disabled: #7fa7ce;
+    --secondary-disabled: #7fb98d;
+    --danger-disabled: #ce8181;
+    --ghost-disabled: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="warm"] {
+    --primary-color: #f39c12;
+    --secondary-color: #d35400;
+    --danger-color: #8e44ad;
+    --ghost-color: transparent;
+    --neutral-light-color: #f5f5f5;
+    --neutral-dark-color: #34495e;
+    --accent-color: #e74c3c;
+    --text-color-light: #ffffff;
+    --text-color-dark: #34495e;
+
+    --primary-hover: #da890f;
+    /* darken(#f39c12, 10%) */
+    --secondary-hover: #b24300;
+    /* darken(#d35400, 10%) */
+    --danger-hover: #7b3c98;
+    /* darken(#8e44ad, 10%) */
+    --ghost-hover: rgba(0, 0, 0, 0.1);
+
+    --primary-active: #c07d0d;
+    /* darken(#f39c12, 20%) */
+    --secondary-active: #993700;
+    /* darken(#d35400, 20%) */
+    --danger-active: #6b3384;
+    /* darken(#8e44ad, 20%) */
+    --ghost-active: rgba(0, 0, 0, 0.2);
+
+    --primary-disabled: #f1c40f;
+    --secondary-disabled: #e98b39;
+    --danger-disabled: #b085bb;
+    --ghost-disabled: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="warm-dark"] {
+    --primary-color: #e67e22;
+    --secondary-color: #c0392b;
+    --danger-color: #7d3c98;
+    --ghost-color: transparent;
+    --neutral-light-color: #bdc3c7;
+    --neutral-dark-color: #2c3e50;
+    --accent-color: #f39c12;
+    --text-color-light: #ffffff;
+    --text-color-dark: #2c3e50;
+
+    --primary-hover: #cc711e;
+    /* darken(#e67e22, 10%) */
+    --secondary-hover: #a73225;
+    /* darken(#c0392b, 10%) */
+    --danger-hover: #6f3387;
+    /* darken(#7d3c98, 10%) */
+    --ghost-hover: rgba(255, 255, 255, 0.1);
+
+    --primary-active: #b3681b;
+    /* darken(#e67e22, 20%) */
+    --secondary-active: #8e2a20;
+    /* darken(#c0392b, 20%) */
+    --danger-active: #5f2b73;
+    /* darken(#7d3c98, 20%) */
+    --ghost-active: rgba(255, 255, 255, 0.2);
+
+    --primary-disabled: #f39c12;
+    --secondary-disabled: #e74c3c;
+    --danger-disabled: #9b59b6;
+    --ghost-disabled: rgba(255, 255, 255, 0.05);
+}
