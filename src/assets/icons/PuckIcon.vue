@@ -22,11 +22,6 @@
 	</svg>
 </template>
 <script setup lang="ts">
-export type SvgProps = {
-	height: number;
-	width: number;
-	fill?: string;
-	stroke?: string;
-};
+import type { SvgProps } from "./types";
 defineProps<SvgProps>();
 </script>
