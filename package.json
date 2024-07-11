@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:DcButton": "vite ./src/components/DcButton/__dev__",
+    "dev:DcDropdownButton": "vite ./src/components/DcDropdownButton/__dev__",
     "dev:DcToggle": "vite ./src/components/DcToggle/__dev__",
     "test:unit": "vitest",
     "build": "vue-tsc -b && vite build",
