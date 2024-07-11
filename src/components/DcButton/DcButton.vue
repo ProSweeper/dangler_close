@@ -67,6 +67,7 @@ const buttonStyle = reactive({ ...props.dimensionOverrides });
 	justify-content: center;
 	align-items: center;
 	border: none;
+	gap: 10px;
 	cursor: pointer;
 	font-size: 16px;
 	transition:

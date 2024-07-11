@@ -6,9 +6,14 @@
 				<DcButton
 					:label="'toggle theme'"
 					:callback="toggleTheme"
+					icon-placement="right"
 					:labelOverrides="labelOverrides"
 					:dimensionOverrides="dimensionOverrides"
-				/>
+				>
+					<template #icon>
+						<PuckIcon :height="20" :width="20" :fill="'white'" />
+					</template>
+				</DcButton>
 				<DcButton
 					:label="'loading'"
 					:callback="() => (loading = !loading)"
