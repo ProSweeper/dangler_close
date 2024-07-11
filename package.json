@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:DcButton": "vite ./src/components/DcButton/__dev__",
+    "test:unit": "vitest",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "lint": "run-p eslint stylelint",
@@ -37,87 +38,12 @@
     "prettier": "3.3.2",
     "sass": "^1.77.6",
     "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recommended-scss": "^6.0.0",
-    "stylelint-config-recommended-vue": "^1.5.0",
-    "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.7.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.15.0",
     "vite": "^5.3.3",
     "vite-bundle-visualizer": "^1.2.1",
     "vitest": "^1.6.0",
     "vue-tsc": "^2.0.26"
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard-scss",
-      "stylelint-config-recommended-scss",
-      "stylelint-prettier/recommended",
-      "stylelint-config-recommended-vue",
-      "stylelint-config-recommended-vue/scss"
-    ],
-    "rules": {
-      "selector-pseudo-element-no-unknown": [
-        true,
-        {
-          "ignorePseudoElements": [
-            "v-deep"
-          ]
-        }
-      ],
-      "selector-pseudo-class-no-unknown": [
-        true,
-        {
-          "ignorePseudoClasses": [
-            "deep"
-          ]
-        }
-      ],
-      "no-descending-specificity": null,
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "use",
-            "include"
-          ]
-        }
-      ],
-      "scss/at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "prince-overlay",
-            "page",
-            "/page:.+/",
-            "top",
-            "right",
-            "bottom",
-            "left"
-          ]
-        }
-      ],
-      "scss/dollar-variable-empty-line-before": null,
-      "scss/at-rule-conditional-no-parentheses": null,
-      "scss/operator-no-newline-after": null
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.scss"
-        ],
-        "customSyntax": "postcss-scss"
-      },
-      {
-        "files": [
-          "*.vue",
-          "**/*.vue"
-        ]
-      }
-    ],
-    "ignoreFiles": []
   },
   "module": "index.ts"
 }
