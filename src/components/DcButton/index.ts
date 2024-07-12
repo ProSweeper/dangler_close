@@ -1,7 +1,7 @@
 export { default as DcButton } from "./DcButton.vue";
 export type {
 	IButtonProps,
-	ButtonVariant,
+	ColorScheme,
 	LabelOverrides as TextOverrides,
 	DimensionOverrides,
 	Size,

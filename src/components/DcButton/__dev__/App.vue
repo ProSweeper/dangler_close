@@ -9,6 +9,7 @@
 					icon-placement="right"
 					:labelOverrides="labelOverrides"
 					:dimensionOverrides="dimensionOverrides"
+					:color-scheme="themes.dark.primary"
 				>
 					<template #icon>
 						<PuckIcon :height="20" :width="20" :fill="'white'" />
@@ -20,12 +21,13 @@
 					:loading="loading"
 					:labelOverrides="labelOverrides"
 					:dimensionOverrides="dimensionOverrides"
+					:color-scheme="themes.dark.secondary"
 				/>
 				<DcButton
 					:label="'puck'"
 					:iconPlacement="'center'"
 					:loading="loading"
-					:variant="'ghost'"
+					:color-scheme="themes.light.ghost"
 					:labelOverrides="labelOverrides"
 					:dimensionOverrides="iconDimensions"
 				>
@@ -39,36 +41,36 @@
 			<div class="buttons-wrapper">
 				<h2>default</h2>
 				<DcButton
-					v-for="variant in variants"
-					:label="variant"
-					:variant="variant"
+					v-for="scheme in activeTheme"
+					:color-scheme="scheme"
+					:label="'Button'"
 				/>
 			</div>
 			<div class="buttons-wrapper">
 				<h2>hover</h2>
 				<DcButton
-					v-for="variant in variants"
-					:label="variant"
+					v-for="scheme in activeTheme"
+					:color-scheme="scheme"
+					:label="'Button'"
 					:hover="true"
-					:variant="variant"
 				/>
 			</div>
 			<div class="buttons-wrapper">
 				<h2>active</h2>
 				<DcButton
-					v-for="variant in variants"
-					:label="variant"
+					v-for="scheme in activeTheme"
+					:color-scheme="scheme"
+					:label="'Button'"
 					:active="true"
-					:variant="variant"
 				/>
 			</div>
 			<div class="buttons-wrapper">
 				<h2>disabled</h2>
 				<DcButton
-					v-for="variant in variants"
-					:label="variant"
+					v-for="scheme in activeTheme"
+					:color-scheme="scheme"
+					:label="'Button'"
 					:disabled="true"
-					:variant="variant"
 				/>
 			</div>
 		</div>
@@ -76,26 +78,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import {
-	variants,
-	type LabelOverrides,
-	type DimensionOverrides,
-} from "../types";
+import { computed, ref } from "vue";
+import { type LabelOverrides, type DimensionOverrides } from "../types";
 import { DcButton } from "../index";
+import { themes, themeKeys } from "../../../constants/colors";
 import PuckIcon from "../../../assets/icons/PuckIcon.vue";
 
-const themes = ["light", "dark", "warm", "warm-dark"];
 const currentThemeIndex = ref(0);
+const activeTheme = computed(() => {
+	const theme = themes[themeKeys[currentThemeIndex.value]];
+	return {
+		primary: theme.primary,
+		secondary: theme.secondary,
+		danger: theme.danger,
+		ghost: theme.ghost,
+	};
+});
+
 const loading = ref(false);
+
 const dimensionOverrides: Partial<DimensionOverrides> = {
 	width: "200px",
 	height: "80px",
 };
+
 const labelOverrides: LabelOverrides = {
 	fontSize: "22px",
 	fontWeight: "600px",
-	color: "black",
 };
 
 const iconDimensions = {
@@ -106,19 +115,8 @@ const iconDimensions = {
 };
 
 const toggleTheme = () => {
-	currentThemeIndex.value = (currentThemeIndex.value + 1) % themes.length;
-	document.documentElement.setAttribute(
-		"data-theme",
-		themes[currentThemeIndex.value],
-	);
+	currentThemeIndex.value = (currentThemeIndex.value + 1) % themeKeys.length;
 };
-
-onMounted(() => {
-	document.documentElement.setAttribute(
-		"data-theme",
-		themes[currentThemeIndex.value],
-	);
-});
 </script>
 
 <style lang="scss">

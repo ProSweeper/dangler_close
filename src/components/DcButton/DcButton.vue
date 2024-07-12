@@ -5,7 +5,6 @@
 		role="button"
 		:aria-disabled="props.disabled"
 		:class="[
-			props.variant,
 			props.size,
 			props.active ? 'active' : '',
 			props.disabled ? 'disabled' : '',
@@ -31,11 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import type { IButtonProps } from "./types";
+import { computed, reactive } from "vue";
+import type { IButtonProps } from "./index";
 
 const props = withDefaults(defineProps<IButtonProps>(), {
-	variant: "primary",
 	iconPlacement: undefined,
 	active: false,
 	hover: false,
@@ -56,7 +54,17 @@ const handleClick = () => {
 };
 
 const textStyle = reactive({ ...props.labelOverrides });
-const buttonStyle = reactive({ ...props.dimensionOverrides });
+const buttonStyle = computed(() => {
+	return {
+		"--default-color": props.colorScheme.default,
+		"--hover-color": props.colorScheme.hover,
+		"--active-color": props.colorScheme.active,
+		"--disabled-color": props.colorScheme.disabled,
+		"--text-color": props.colorScheme.text,
+		"--border-color": props.colorScheme.border ?? "transparent",
+		...props.dimensionOverrides,
+	};
+});
 </script>
 
 <style scoped lang="scss">
@@ -76,13 +84,14 @@ const buttonStyle = reactive({ ...props.dimensionOverrides });
 	gap: 10px;
 	cursor: pointer;
 	font-size: 16px;
+	background-color: var(--default-color);
 	transition:
 		background-color 0.3s,
 		color 0.3s,
 		box-shadow 0.3s;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
-	color: var(--text-color-light);
+	color: var(--text-color);
 	user-select: none;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -96,82 +105,20 @@ const buttonStyle = reactive({ ...props.dimensionOverrides });
 		outline: none;
 		box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 	}
-	&.primary {
-		background-color: var(--primary-color);
 
-		&:hover,
-		&.hover {
-			background-color: var(--primary-hover);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		}
-
-		&:active,
-		&.active {
-			background-color: var(--primary-active);
-			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-		}
-		&.disabled {
-			background-color: var(--primary-disabled);
-		}
+	&:hover,
+	&.hover {
+		background-color: var(--hover-color);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	}
 
-	&.secondary {
-		background-color: var(--secondary-color);
-
-		&:hover,
-		&.hover {
-			background-color: var(--secondary-hover);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		}
-
-		&:active,
-		&.active {
-			background-color: var(--secondary-active);
-			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-		}
-		&.disabled {
-			background-color: var(--secondary-disabled);
-		}
+	&:active,
+	&.active {
+		background-color: var(--active-color);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 	}
-
-	&.danger {
-		background-color: var(--danger-color);
-
-		&:hover,
-		&.hover {
-			background-color: var(--danger-hover);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		}
-
-		&:active &.active {
-			background-color: var(--danger-active);
-			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-		}
-		&.disabled {
-			background-color: var(--danger-disabled);
-		}
-	}
-
-	&.ghost {
-		background-color: var(--ghost-color);
-		border: 2px solid var(--primary-color);
-
-		&:hover,
-		&.hover {
-			background-color: var(--ghost-hover);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		}
-
-		&:active &.active {
-			background-color: var(--ghost-active);
-			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-		}
-		&.disabled {
-			background-color: var(--ghost-disabled);
-		}
-	}
-
 	&.disabled {
+		background-color: var(--disabled-color);
 		opacity: 0.7;
 		cursor: not-allowed;
 	}
@@ -191,8 +138,8 @@ const buttonStyle = reactive({ ...props.dimensionOverrides });
 		padding: 15px 30px;
 	}
 	.spinner {
-		border: 4px solid var(--text-color-light);
-		border-top: 4px solid var(--primary-color);
+		border: 4px solid var(--text-color);
+		border-top: 4px solid var(--default-color);
 		border-radius: 50%;
 		width: 20px;
 		height: 20px;

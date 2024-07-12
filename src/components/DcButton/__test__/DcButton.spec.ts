@@ -1,15 +1,17 @@
 import { vi, beforeEach, it, describe, expect } from "vitest";
 import { mount, VueWrapper } from "@vue/test-utils";
 import DcButton from "../DcButton.vue";
-import { variants, type IButtonProps } from "../types";
+import { type IButtonProps } from "../types";
+import { themes } from "../../../constants/colors";
 
 const label = "testing";
 const callbackFunc = vi.fn();
 
+const colorScheme = themes.warm.primary;
 const createProps = (overrides = {}): IButtonProps => ({
 	label,
+	colorScheme,
 	callback: callbackFunc,
-	variant: "primary",
 	disabled: false,
 	hover: false,
 	active: false,
@@ -34,10 +36,6 @@ describe("Dc Button", () => {
 		});
 		it("should display the label passed in", () => {
 			expect(wrapper.text().includes(label)).toBeTruthy();
-		});
-		it.each(variants)("should add the variant prop as a class", (variant) => {
-			const wrapper = mount(DcButton, { props: createProps({ variant }) });
-			expect(wrapper.classes().includes(variant)).toBeTruthy();
 		});
 		it.each(["disabled", "active", "hover"])(
 			"should apply the hover class when hover prop is true",
